@@ -90,6 +90,7 @@ public class mainwindow extends JDialog {
         label.setText("Test");
     }
 
+
     public void addOption(){
         String[] choices = { "Image", "Text"};
         String input = (String) JOptionPane.showInputDialog(null, "Choose now...",
@@ -109,8 +110,6 @@ public class mainwindow extends JDialog {
         //frame.setSize(800,700);
         frame.pack();
         frame.setVisible(true);
-
-
 
     }
 }

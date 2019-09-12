@@ -5,4 +5,7 @@ import org.wpi.cardmaker.Model.Card;
 public class VisualElementController {
     public Card card;
 
+    public void ChooseVisualElementType(){
+
+    }
 }

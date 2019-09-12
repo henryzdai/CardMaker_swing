@@ -23,7 +23,6 @@ public class CreatingCardOptionFrame extends JFrame{
     // in put card name
     public void CardNameInputDialog(){
         Card card = new Card();
-
         JFrame frame = new JFrame("Creating card");
         Object cardName = JOptionPane.showInputDialog(frame, "Input a card name", "card1");
         if(cardName instanceof String)
@@ -52,14 +51,6 @@ public class CreatingCardOptionFrame extends JFrame{
             card.setEventType((String)cardType);
             RecipientNameInputDialog(card);
         }
-        // get the user's input. note that if they press Cancel, 'name' will be null
-        /*if ((int)cardType == JOptionPane.YES_OPTION) {
-            System.out.println("Yes");
-        } else if ((int)cardType == JOptionPane.NO_OPTION) {
-            System.out.println("No");
-        } else if ((int)cardType == JOptionPane.CLOSED_OPTION) {
-            System.out.println("Closed by hitting the cross");
-        }*/
     }
 
     public void RecipientNameInputDialog(Card card){
