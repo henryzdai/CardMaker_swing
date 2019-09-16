@@ -56,7 +56,9 @@ class EditorTest extends JFrame implements ActionListener {
         EditorTest te = new EditorTest();
 
         // addActionListener to button
-        b.addActionListener(te);
+        //b.addActionListener(te);
+
+
 
 
         //
@@ -73,7 +75,7 @@ class EditorTest extends JFrame implements ActionListener {
 
 
         //juice
-        ItemListener ItemListener = new ItemListener() {
+        ItemListener FontListener = new ItemListener() {
             public void itemStateChanged(ItemEvent itemEvent) {
                 int state = itemEvent.getStateChange();
                 System.out.println((state == ItemEvent.SELECTED) ? "Selected" : "Deselected");
@@ -82,14 +84,31 @@ class EditorTest extends JFrame implements ActionListener {
                 page.setTextType((String) itemEvent.getItem());
             }
         };
+        ItemListener SizeListener = new ItemListener() {
+            public void itemStateChanged(ItemEvent itemEvent) {
+                int state = itemEvent.getStateChange();
+                System.out.println((state == ItemEvent.SELECTED) ? "Selected" : "Deselected");
+                System.out.println("Item: " + itemEvent.getItem());
+                ItemSelectable is = itemEvent.getItemSelectable();
+                page.setTextSize((int)itemEvent.getItem());
+            }
+        };
+        sizeNumber.addItemListener(SizeListener);
+        fontStyle.addItemListener(FontListener);
 
-        sizeNumber.addItemListener(ItemListener);
-        fontStyle.addItemListener(ItemListener);
-
-
+        b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Font fo = new Font(page.getTextType(), Font.PLAIN, page.getTextSize());
+                l.setFont(fo);
+                l.setText(t.getText());
+                //l.setFont(fon);
+                // set the text of field to blank
+                t.setText("  ");
+            }
+        });
         // create a object of JTextField with 16 columns
         t = new JTextField(16);
-
         // create an object of font type
         Font fo = new Font("Serif", Font.BOLD, 20);
         Font fo1 = new Font("Comic Sans MS", Font.PLAIN, 24);

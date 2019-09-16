@@ -7,18 +7,20 @@ import javax.swing.JOptionPane;
 import java.awt.*;
 
 public class CreatingCardOptionFrame extends JFrame{
-    public Card newCard = new Card();
+    public Card card = new Card();
 
     public CreatingCardOptionFrame() {
-        /*getContentPane().setBackground(Color.DARK_GRAY);
+        /*getContentPane().setBackground(Color.DARK_GRAY);*/
+
+    }
+
+    public void createUI(){
         setTitle("Input Dialog in Frame");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setResizable(false);
         setSize(400, 300);
-        getContentPane().setLayout(null);*/
     }
-
 
     // in put card name
     public void CardNameInputDialog(){
@@ -59,20 +61,12 @@ public class CreatingCardOptionFrame extends JFrame{
         if(recipientName instanceof String)
         {
             card.setRecipient((String)recipientName);
-            showMainWindow(card);
+            showMainWindow();
         }
     }
 
-    public void showMainWindow(Card card){
-        String name = card.getName();
-        String eventType = card.getEventType();
-        String recipient = card.getRecipient();
-        JFrame frame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType);
-        frame.setContentPane(new org.wpi.cardmaker.View.mainwindow().getContentPane());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setSize(800,700);
-        frame.pack();
-        frame.setVisible(true);
+    public void showMainWindow(){
+        new mainwindow().createUI(this.card);
     }
 
 
