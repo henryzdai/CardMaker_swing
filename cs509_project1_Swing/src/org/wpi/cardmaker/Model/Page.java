@@ -10,6 +10,8 @@ public class Page {
     public int textSize;
 
     public Page() {
+        this.text = "Default Text";
+        this.name = "Page1";
     }
 
     public Page(String text, String name, Image image, String textType) {
