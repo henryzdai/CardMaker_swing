@@ -7,7 +7,7 @@ public class Page {
     public String name;
     public java.awt.Image image;
     public String textType;
-    public String textSize;
+    public int textSize;
 
     public Page() {
     }
@@ -28,11 +28,11 @@ public class Page {
         this.textType = textType;
     }
 
-    public String getTextSize() {
+    public int getTextSize() {
         return textSize;
     }
 
-    public void setTextSize(String textSize) {
+    public void setTextSize(int textSize) {
         this.textSize = textSize;
     }
 
