@@ -47,10 +47,10 @@ public class mainwindow extends JDialog {
         this.card = card;
 
         // add Listener
-        addVisualElementButton.addActionListener(new AddVisualElementActionListener());
+       /* addVisualElementButton.addActionListener(new AddVisualElementActionListener());
         deleteVisualElementButton.addActionListener(new DelVisualElementActionListener());
         copyVisualElementButton.addActionListener(new CopyVisualElementActionListener());
-        pasteVisualElementButton.addActionListener(new PasteVisualElementActionListener());
+        pasteVisualElementButton.addActionListener(new PasteVisualElementActionListener());*/
 
         //Highlight code
         /*HighlightMouseListener hml = new HighlightMouseListener();
@@ -74,7 +74,7 @@ public class mainwindow extends JDialog {
 
 
     // Button's Listener method
-    private class AddVisualElementActionListener implements ActionListener {
+    /*private class AddVisualElementActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -102,7 +102,7 @@ public class mainwindow extends JDialog {
         public void actionPerformed(ActionEvent e) {
             visualElementController.ChooseVisualElementType();
         }
-    }
+    }*/
 
 
     public void createUI(Card card){
