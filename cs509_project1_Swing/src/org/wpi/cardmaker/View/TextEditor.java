@@ -1,12 +1,16 @@
 package org.wpi.cardmaker.View;
 
+import org.wpi.cardmaker.Controller.SerializationController;
 import org.wpi.cardmaker.Model.Card;
+import org.wpi.cardmaker.Model.Page;
 import org.wpi.cardmaker.SwingTestCase;
 
 import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import javax.swing.text.StyledEditorKit;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Arrays;
@@ -14,7 +18,7 @@ import java.util.List;
 import java.util.Vector;
 
 public class TextEditor {
-    public Card card;
+    public Page page;
     public JFrame frame__;
     public JTextPane editor__;
     public JComboBox fontSizeCombo__;
@@ -25,8 +29,8 @@ public class TextEditor {
     private static final List<String> FONT_LIST = Arrays.asList(new String [] {"Arial", "Calibri", "Cambria", "Courier New", "Comic Sans MS", "Dialog", "Georgia", "Helevetica", "Lucida Sans", "Monospaced", "Tahoma", "Times New Roman", "Verdana"});
     private static final String [] FONT_SIZES  = {"Font Size", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30"};
 
-    public TextEditor(Card card){
-        this.card = card;
+    public TextEditor(Page page){
+        this.page = page;
 
     }
 
@@ -37,6 +41,7 @@ public class TextEditor {
 
         JButton submit = new JButton();
         submit.setText("Submit");
+        submit.addActionListener(new SubmitButtonListener());
 
         fontSizeCombo__ = new JComboBox<String>(FONT_SIZES);
         fontSizeCombo__.setEditable(false);
@@ -56,7 +61,6 @@ public class TextEditor {
         panel1.add(new JSeparator(SwingConstants.VERTICAL));
         panel1.add(submit);
 
-        JPanel panel2 = new JPanel(new FlowLayout((FlowLayout.LEFT)));
 
         frame__.add(panel1, BorderLayout.NORTH);
         frame__.add(editorScrollPane, BorderLayout.CENTER);
@@ -70,8 +74,20 @@ public class TextEditor {
 
     }
 
-    private class FontSizeItemListener implements ItemListener {
 
+    private class SubmitButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            /*SerializationController sl = new SerializationController();
+            sl.ObjectWriter(page);*/
+            frame__.setVisible(false);
+            System.out.println(page.getTextSize());
+            System.out.println(page.getTextType());
+        }
+    } // SubmitButtonListener
+
+
+    private class FontSizeItemListener implements ItemListener {
         @Override
         public void itemStateChanged(ItemEvent e) {
 
@@ -92,6 +108,7 @@ public class TextEditor {
 
             fontSizeCombo__.setAction(new StyledEditorKit.FontSizeAction(fontSizeStr, newFontSize));
             //fontSizeCombo__.setSelectedIndex(0); // initialize to (default) select
+            page.setTextSize(newFontSize);
             editor__.requestFocusInWindow();
         }
     } // FontSizeItemListener
@@ -108,7 +125,8 @@ public class TextEditor {
 
             String fontFamily = (String) e.getItem();
             fontFamilyCombo__.setAction(new StyledEditorKit.FontFamilyAction(fontFamily, fontFamily));
-            fontFamilyCombo__.setSelectedIndex(0); // initialize to (default) select
+            //fontFamilyCombo__.setSelectedIndex(0); // initialize to (default) select
+            page.setTextType(fontFamily);
             editor__.requestFocusInWindow();
         }
     } // FontFamilyItemListener
@@ -126,7 +144,6 @@ public class TextEditor {
         for (String font : availableFonts) {
 
             if (FONT_LIST.contains(font)) {
-
                 returnList.add(font);
             }
         }
@@ -146,7 +163,7 @@ public class TextEditor {
 
             @Override
             public void run() {
-                new TextEditor(new Card()).createAndShowGUI();
+                new TextEditor(new Page()).createAndShowGUI();
             }
         });
     }

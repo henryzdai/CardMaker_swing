@@ -47,9 +47,9 @@ public class mainwindow extends JDialog {
         this.card = card;
 
         // add Listener
-        /*addVisualElementButton.addActionListener(new AddVisualElementActionListener());
+        addVisualElementButton.addActionListener(new AddVisualElementActionListener());
         deleteVisualElementButton.addActionListener(new DelVisualElementActionListener());
-        copyVisualElementButton.addActionListener(new CopyVisualElementActionListener());
+        /*copyVisualElementButton.addActionListener(new CopyVisualElementActionListener());
         pasteVisualElementButton.addActionListener(new PasteVisualElementActionListener());*/
 
         //Highlight code
@@ -74,11 +74,12 @@ public class mainwindow extends JDialog {
 
 
     // Button's Listener method
-    /*private class AddVisualElementActionListener implements ActionListener {
-
+    private class AddVisualElementActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            visualElementController.ChooseVisualElementType();
+            //visualElementController.ChooseVisualElementType(contentPane);
+            TextEditor tx = new TextEditor(card.getFrontPage());
+            tx.createAndShowGUI();
         }
     }
 
@@ -86,10 +87,12 @@ public class mainwindow extends JDialog {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            visualElementController.ChooseVisualElementType();
+            //visualElementController.ChooseVisualElementType();
+            System.out.println(card.getFrontPage().getTextSize());
+            System.out.println(card.getFrontPage().getTextType());
         }
     }
-    private class CopyVisualElementActionListener implements ActionListener {
+    /*private class CopyVisualElementActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {

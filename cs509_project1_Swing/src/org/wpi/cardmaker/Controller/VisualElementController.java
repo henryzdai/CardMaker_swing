@@ -13,8 +13,15 @@ import java.util.Random;
 
 public class VisualElementController {
     public Card card;
+    public JPanel contentPane;
 
-    public void ChooseVisualElementType(JFrame frame){
+
+
+    public VisualElementController(){
+
+    }
+    public void ChooseVisualElementType(JPanel JFrame){
+
         String[] choices = { "Image", "Text"};
         String input = (String) JOptionPane.showInputDialog(null, "Choose now...",
                 "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null, // Use
