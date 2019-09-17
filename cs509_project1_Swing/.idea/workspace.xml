@@ -3,17 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="87974182-8b15-499c-afd1-0d5ab12fe5ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Controller/VisualElementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Controller/VisualElementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/EditorTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/EditorTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/EditorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/EditorTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Model/Page.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Model/Page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/SwingTestCase$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/SwingTestCase$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/SwingTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/SwingTestCase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/CreatingCardOptionFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/CreatingCardOptionFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/mainwindow$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/mainwindow$HighlightMouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/mainwindow$HighlightMouseListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/mainwindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/mainwindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/mainwindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/mainwindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +36,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -121,7 +111,7 @@
       <workItem from="1567609870748" duration="5074000" />
       <workItem from="1568142020542" duration="1770000" />
       <workItem from="1568323836200" duration="1645000" />
-      <workItem from="1568653146653" duration="2731000" />
+      <workItem from="1568653146653" duration="3031000" />
     </task>
     <servers />
   </component>

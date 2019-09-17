@@ -49,7 +49,11 @@ public class mainwindow extends JDialog {
         // add Listener
        /* addVisualElementButton.addActionListener(new AddVisualElementActionListener());
         deleteVisualElementButton.addActionListener(new DelVisualElementActionListener());
+<<<<<<< HEAD
         copyVisualElementButton.addActionListener(new CopyVisualElementActionListener());
+=======
+        /*copyVisualElementButton.addActionListener(new CopyVisualElementActionListener());
+>>>>>>> 3a1d25768eb02274364f1d896fe2a551ae62aebf
         pasteVisualElementButton.addActionListener(new PasteVisualElementActionListener());*/
 
         //Highlight code
@@ -74,11 +78,17 @@ public class mainwindow extends JDialog {
 
 
     // Button's Listener method
+<<<<<<< HEAD
     /*private class AddVisualElementActionListener implements ActionListener {
 
+=======
+    private class AddVisualElementActionListener implements ActionListener {
+>>>>>>> 3a1d25768eb02274364f1d896fe2a551ae62aebf
         @Override
         public void actionPerformed(ActionEvent e) {
-            visualElementController.ChooseVisualElementType();
+            //visualElementController.ChooseVisualElementType(contentPane);
+            TextEditor tx = new TextEditor(card.getFrontPage());
+            tx.createAndShowGUI();
         }
     }
 
@@ -86,10 +96,12 @@ public class mainwindow extends JDialog {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            visualElementController.ChooseVisualElementType();
+            //visualElementController.ChooseVisualElementType();
+            System.out.println(card.getFrontPage().getTextSize());
+            System.out.println(card.getFrontPage().getTextType());
         }
     }
-    private class CopyVisualElementActionListener implements ActionListener {
+    /*private class CopyVisualElementActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -114,7 +126,7 @@ public class mainwindow extends JDialog {
         // JFrame frame = new JFrame("Card Maker");
         frame.setContentPane(new mainwindow().contentPane);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setSize(800,700);
+        frame.setSize(900,600);
         frame.pack();
         frame.setVisible(true);
     }
