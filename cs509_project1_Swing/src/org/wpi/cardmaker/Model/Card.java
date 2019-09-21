@@ -18,7 +18,8 @@ public class Card {
         this.eventType = this.eventOption[0];
         this.recipient = "jone doe";
         this.name = "Card1";
-
+        this.frontPage = new Page();
+        this.backPage = new Page();
     }
 
     public Card(String name, String eventType, String recipient){

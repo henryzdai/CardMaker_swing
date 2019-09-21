@@ -17,21 +17,36 @@ public class StaterMenu extends JFrame {
         CreateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CreatingCardOptionFrame().show();
+                new CreatingCardOptionFrame().CardNameInputDialog();;
             }
         });
+
+        loadCardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LoadList().createAndShowUI();
+            }
+        });
+    }
+
+    public void createAndShowUI(){
+        JFrame frame = new JFrame("Card Maker");
+        frame.setContentPane(new StaterMenu().getContentPane());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800,700);
+        frame.setLocation(150,70);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public void showCreatingOptionPane(){
+        new CreatingCardOptionFrame().CardNameInputDialog();
     }
 
 
 
     // main function
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Card Maker");
-        frame.setContentPane(new StaterMenu().getContentPane());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800,700);
-        frame.pack();
-        frame.setVisible(true);
-
+        new StaterMenu().createAndShowUI();
     }
 }

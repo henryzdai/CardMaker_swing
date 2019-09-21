@@ -2,6 +2,7 @@ package org.wpi.cardmaker.View;
 
 import org.wpi.cardmaker.Controller.VisualElementController;
 import org.wpi.cardmaker.Model.Card;
+import org.wpi.cardmaker.Model.Page;
 import org.wpi.cardmaker.SwingTestCase;
 
 import javax.swing.*;
@@ -33,7 +34,7 @@ public class mainwindow extends JDialog {
     private JButton buttonCancel;
 
     //Controller
-    private VisualElementController visualElementController = new VisualElementController();
+    private VisualElementController visualElementController;
 
     // Card
     private Card card;
@@ -45,50 +46,35 @@ public class mainwindow extends JDialog {
 
         // Initialize
         this.card = card;
+        card.getFrontPage().setImageLabel(FrontImage);
+        card.getFrontPage().setTextLabel(FrontText);
+        card.getBackPage().setImageLabel(BackImage);
+        card.getBackPage().setTextLabel(BackPageText);
+
+        // Controller
+        visualElementController = new VisualElementController(card);
 
         // add Listener
-       /* addVisualElementButton.addActionListener(new AddVisualElementActionListener());
+        addVisualElementButton.addActionListener(new AddVisualElementActionListener());
+        //addVisualElementButton.addActionListener(new AddVisualElementActionListener());
         deleteVisualElementButton.addActionListener(new DelVisualElementActionListener());
-<<<<<<< HEAD
+
         copyVisualElementButton.addActionListener(new CopyVisualElementActionListener());
-=======
-        /*copyVisualElementButton.addActionListener(new CopyVisualElementActionListener());
->>>>>>> 3a1d25768eb02274364f1d896fe2a551ae62aebf
-        pasteVisualElementButton.addActionListener(new PasteVisualElementActionListener());*/
-
-        //Highlight code
-        /*HighlightMouseListener hml = new HighlightMouseListener();
-        FrontPage.addMouseListener(hml);
-        FrontImage.addMouseListener(hml);
-        BackImage.addMouseListener(hml);
-        BackPage.addMouseListener(hml);
-        BackPageText.setText("Test text");
-
-        addVisualElementButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addImage(FrontImage);
-            }
-        });*/
+        pasteVisualElementButton.addActionListener(new PasteVisualElementActionListener());
     }
 
-    public mainwindow() {
+    /*public mainwindow() {
 
-    }
+
+    }*/
 
 
     // Button's Listener method
-<<<<<<< HEAD
-    /*private class AddVisualElementActionListener implements ActionListener {
-
-=======
     private class AddVisualElementActionListener implements ActionListener {
->>>>>>> 3a1d25768eb02274364f1d896fe2a551ae62aebf
         @Override
         public void actionPerformed(ActionEvent e) {
-            //visualElementController.ChooseVisualElementType(contentPane);
-            TextEditor tx = new TextEditor(card.getFrontPage());
-            tx.createAndShowGUI();
+
+            visualElementController.ChoosePage("Add");
         }
     }
 
@@ -96,25 +82,23 @@ public class mainwindow extends JDialog {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            //visualElementController.ChooseVisualElementType();
-            System.out.println(card.getFrontPage().getTextSize());
-            System.out.println(card.getFrontPage().getTextType());
+            visualElementController.ChoosePage("Delete");
         }
     }
-    /*private class CopyVisualElementActionListener implements ActionListener {
+    private class CopyVisualElementActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            visualElementController.ChooseVisualElementType();
+            visualElementController.ChoosePage("Copy");
         }
     }
     private class PasteVisualElementActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            visualElementController.ChooseVisualElementType();
+            visualElementController.ChoosePage("Paste");
         }
-    }*/
+    }
 
 
     public void createUI(Card card){
@@ -124,7 +108,7 @@ public class mainwindow extends JDialog {
         System.out.println(name);
         JFrame frame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType);
         // JFrame frame = new JFrame("Card Maker");
-        frame.setContentPane(new mainwindow().contentPane);
+        frame.setContentPane(new mainwindow(card).contentPane);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900,600);
         frame.pack();
@@ -167,6 +151,7 @@ public class mainwindow extends JDialog {
 
     // main function
     public static void main(String[] args) {
-        new mainwindow().createUI(new Card());
+        Card card = new Card();
+        new mainwindow(card).createUI(card);
     }
 }

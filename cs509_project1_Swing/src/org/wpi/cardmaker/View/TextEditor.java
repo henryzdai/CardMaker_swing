@@ -4,6 +4,7 @@ import org.wpi.cardmaker.Controller.SerializationController;
 import org.wpi.cardmaker.Model.Card;
 import org.wpi.cardmaker.Model.Page;
 import org.wpi.cardmaker.SwingTestCase;
+import sun.font.FontFamily;
 
 import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
@@ -31,13 +32,13 @@ public class TextEditor {
 
     public TextEditor(Page page){
         this.page = page;
-
     }
 
     public void createAndShowGUI(){
         frame__ = new JFrame("Text Editor");
         editor__ = new JTextPane();
         JScrollPane editorScrollPane = new JScrollPane(editor__);
+        editor__.setText(page.getText());
 
         JButton submit = new JButton();
         submit.setText("Submit");
@@ -81,8 +82,10 @@ public class TextEditor {
             /*SerializationController sl = new SerializationController();
             sl.ObjectWriter(page);*/
             frame__.setVisible(false);
-            System.out.println(page.getTextSize());
-            System.out.println(page.getTextType());
+            page.setText(editor__.getText());
+            page.getTextLabel().setFont(new Font(page.getTextType(), Font.PLAIN,24));
+            page.getTextLabel().setText(page.text);
+
         }
     } // SubmitButtonListener
 

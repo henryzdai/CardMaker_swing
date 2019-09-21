@@ -1,5 +1,6 @@
 package org.wpi.cardmaker.Model;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Page {
@@ -8,10 +9,13 @@ public class Page {
     public java.awt.Image image;
     public String textType;
     public int textSize;
+    public JLabel textLabel;
+    public JLabel imageLabel;
 
     public Page() {
         this.text = "Default Text";
         this.name = "Page1";
+        this.text = " ";
     }
 
     public Page(String text, String name, Image image, String textType) {
@@ -21,6 +25,22 @@ public class Page {
         this.textType = textType;
     }
 
+
+    public JLabel getTextLabel() {
+        return textLabel;
+    }
+
+    public void setTextLabel(JLabel textLabel) {
+        this.textLabel = textLabel;
+    }
+
+    public JLabel getImageLabel() {
+        return imageLabel;
+    }
+
+    public void setImageLabel(JLabel imageLabel) {
+        this.imageLabel = imageLabel;
+    }
 
     public String getTextType() {
         return textType;

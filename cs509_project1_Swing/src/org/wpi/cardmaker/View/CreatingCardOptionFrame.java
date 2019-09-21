@@ -26,6 +26,7 @@ public class CreatingCardOptionFrame extends JFrame{
     public void CardNameInputDialog(){
         Card card = new Card();
         JFrame frame = new JFrame("Creating card");
+        frame.setLocation(150,70);
         Object cardName = JOptionPane.showInputDialog(frame, "Input a card name", "card1");
         if(cardName instanceof String)
         {
@@ -66,12 +67,12 @@ public class CreatingCardOptionFrame extends JFrame{
     }
 
     public void showMainWindow(){
-        new mainwindow().createUI(this.card);
+        new mainwindow(this.card).createUI(this.card);
     }
 
 
 
-    public static void main(String args[]) {
+    public static void main(String args[]) { new CreatingCardOptionFrame().CardNameInputDialog();
         new CreatingCardOptionFrame().CardNameInputDialog();
     }
 

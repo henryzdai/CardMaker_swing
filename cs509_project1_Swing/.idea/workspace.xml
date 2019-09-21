@@ -3,6 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="87974182-8b15-499c-afd1-0d5ab12fe5ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Controller/VisualElementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Controller/VisualElementController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/EditorTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/EditorTest$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/EditorTest$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/EditorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Model/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Model/Page.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/Model/Page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/CreatingCardOptionFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/CreatingCardOptionFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/StaterMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/StaterMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/StaterMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/StaterMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/TextEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/TextEditor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/mainwindow$HighlightMouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/mainwindow$HighlightMouseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/mainwindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cs509_project1_Swing/org/wpi/cardmaker/View/mainwindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/Controller/VisualElementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/wpi/cardmaker/Controller/VisualElementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/EditorTest.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/EditorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/Model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/wpi/cardmaker/Model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/Model/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/wpi/cardmaker/Model/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/CreatingCardOptionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/CreatingCardOptionFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/StaterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/StaterMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/TextEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/TextEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/mainwindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/wpi/cardmaker/View/mainwindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +49,9 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1QNT5ORUDBYKwoxyTOj3Ydk80kn" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -36,7 +60,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -50,13 +74,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SwingTestCase">
-    <configuration name="EditorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.wpi.cardmaker.EditorTest" />
+  <component name="RunManager" selected="Application.StaterMenu">
+    <configuration name="LoadList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.wpi.cardmaker.View.LoadList" />
       <module name="cs509_project1_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.wpi.cardmaker.*" />
+          <option name="PATTERN" value="org.wpi.cardmaker.View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StaterMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.wpi.cardmaker.View.StaterMenu" />
+      <module name="cs509_project1_Swing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.wpi.cardmaker.View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -77,12 +114,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="mainwindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.wpi.cardmaker.mainwindow" />
+    <configuration name="VisualElementSelection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.wpi.cardmaker.View.VisualElementSelection" />
       <module name="cs509_project1_Swing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.wpi.cardmaker.*" />
+          <option name="PATTERN" value="org.wpi.cardmaker.View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mainwindow (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.wpi.cardmaker.View.mainwindow" />
+      <module name="cs509_project1_Swing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.wpi.cardmaker.View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -92,9 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StaterMenu" />
+        <item itemvalue="Application.mainwindow (1)" />
         <item itemvalue="Application.SwingTestCase" />
-        <item itemvalue="Application.EditorTest" />
-        <item itemvalue="Application.mainwindow" />
+        <item itemvalue="Application.VisualElementSelection" />
+        <item itemvalue="Application.LoadList" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +163,9 @@
       <workItem from="1567609870748" duration="5074000" />
       <workItem from="1568142020542" duration="1770000" />
       <workItem from="1568323836200" duration="1645000" />
-      <workItem from="1568653146653" duration="3031000" />
+      <workItem from="1568653146653" duration="7926000" />
+      <workItem from="1568737314663" duration="14043000" />
+      <workItem from="1569014025101" duration="1214000" />
     </task>
     <servers />
   </component>
