@@ -1,9 +1,12 @@
 package org.wpi.cardmaker.Model;
 import org.wpi.cardmaker.Model.Page;
 
-public class Card {
+import java.io.Serializable;
+
+public class Card implements Serializable {
 
     public String[] eventOption = { "Default", "Birthday", "Anniversary", "Halloween", "Christmas", "Easter" };
+    public String[] orientationOption = {"Default", "landscape","portrait"};
     public String eventType;
     public String recipient;
     public Page frontPage;
@@ -11,6 +14,9 @@ public class Card {
     public Page leftPage;
     public Page rightPage;
     public String name;
+    public int Height;
+    public int Width;
+    public String Orientation;
 
 
 
@@ -38,7 +44,22 @@ public class Card {
         this.rightPage = rightPage;
     }
 
+    @Override
+    public String toString(){
+        return "Name:"+name;
+    }
+
+
+
     // setter, getter
+    public String getOrientation() {
+        return Orientation;
+    }
+
+    public void setOrientation(String orientation) {
+        Orientation = orientation;
+    }
+
     public String[] getEventOption() {
         return eventOption;
     }

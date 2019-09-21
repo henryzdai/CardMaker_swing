@@ -125,7 +125,6 @@ public class VisualElementController {
                 "PNG, JPG & GIF Images", "png", "jpg", "gif");
         chooser.setFileFilter(filter);
         if (chooser.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
-
             return chooser.getSelectedFile();
         }
         else {

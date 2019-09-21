@@ -2,8 +2,9 @@ package org.wpi.cardmaker.Model;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
-public class Page {
+public class Page implements Serializable {
     public String text;
     public String name;
     public java.awt.Image image;

@@ -381,7 +381,6 @@ public class SwingTestCase {
 
             if ((e.getStateChange() != ItemEvent.SELECTED) ||
                     (textAlignComboBox__.getSelectedIndex() == 0)) {
-
                 return;
             }
 
