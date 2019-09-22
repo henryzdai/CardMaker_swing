@@ -5,6 +5,7 @@ import org.wpi.cardmaker.Model.Page;
 import org.wpi.cardmaker.View.ImageEditor;
 import org.wpi.cardmaker.View.TextEditor;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -58,10 +59,10 @@ public class VisualElementController {
                 choices[0]); // Initial choice
         if(input == "Image"){
             if(command == "Add") {
-                //addImage();
+                addImage(page.getImageLabel(), "1");
             }
             if(command == "Delete") {
-                page.getImage();
+                page.getImageLabel().setIcon(null);
             }
             if(command == "Copy") {
 
@@ -131,10 +132,25 @@ public class VisualElementController {
             return null;
         }
     }
-
     public void addText(JLabel label, String text){
+       label.setText(text);
+    }
+
+    public void addImage(JLabel label, String id){
         //Image immage= "resources/backimage.jpg";
-        label.setText(text);
+        String filename = "./cs509_project1_Swing/src/resources/"+id+".jpg";
+        Image image;
+        try
+        {
+            image = ImageIO.read(new File(filename));
+            ImageIcon imageIcon = new ImageIcon(image);
+            label.setIcon(imageIcon);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 
     public void CopyText(Page page){
@@ -147,6 +163,8 @@ public class VisualElementController {
     public void CopyImage(){
 
     }
+
+
 
     public void PasteText(Page page){
         String textToCopy = "";
@@ -169,46 +187,4 @@ public class VisualElementController {
     }
 
 
-
-    /*private class PictureInsertActionListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-            File pictureFile = choosePictureFile();
-
-            if (pictureFile == null) {
-
-                editor__.requestFocusInWindow();
-                return;
-            }
-
-            ImageIcon icon = new ImageIcon(pictureFile.toString());
-            JButton picButton = new JButton(icon);
-            picButton.setBorder(new LineBorder(Color.WHITE));
-            picButton.setMargin(new Insets(0,0,0,0));
-            picButton.setAlignmentY(.9f);
-            picButton.setAlignmentX(.9f);
-            picButton.addFocusListener(new SwingTestCase.PictureFocusListener());
-            picButton.setName("PICTURE_ID_" + new Random().nextInt());
-            editor__.insertComponent(picButton);
-            editor__.requestFocusInWindow();
-        }
-
-        private File choosePictureFile() {
-
-            JFileChooser chooser = new JFileChooser();
-            FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                    "PNG, JPG & GIF Images", "png", "jpg", "gif");
-            chooser.setFileFilter(filter);
-
-            if (chooser.showOpenDialog(frame__) == JFileChooser.APPROVE_OPTION) {
-
-                return chooser.getSelectedFile();
-            }
-            else {
-                return null;
-            }
-        }
-    } // PictureInsertActionListener*/
 }

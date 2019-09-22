@@ -17,7 +17,7 @@ public class StaterMenu extends JFrame {
         CreateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CreatingCardOptionFrame().CardNameInputDialog();;
+                new CreateCard().createAndShowUI();
             }
         });
 

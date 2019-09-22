@@ -34,7 +34,7 @@ public class LoadList {
     public void createAndShowUI(){
         frame__ = new JFrame("Card List");
         //cardList__ = new JScrollPane();
-        loadBbutton = new JButton("Load");
+        loadBbutton = new JButton("Display");
         loadBbutton.addActionListener(new AddButtonListener());
         deleteButton = new JButton("Delete");
         deleteButton.addActionListener(new DeleteButtonListener());
@@ -87,7 +87,6 @@ public class LoadList {
             loadCardController.DeleteCardController(currentFile);
             frame__.dispose();
             new LoadList().createAndShowUI();
-
         }
     }
 

@@ -4,10 +4,15 @@ import org.wpi.cardmaker.Controller.CreatingCardController;
 import org.wpi.cardmaker.Controller.SerializationController;
 import org.wpi.cardmaker.Controller.VisualElementController;
 import org.wpi.cardmaker.Model.Card;
+import org.wpi.cardmaker.Model.Page;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MakerWindow {
     public JFrame frame;
@@ -17,19 +22,19 @@ public class MakerWindow {
     private JButton pasteVisualElementButton;
     private JButton saveButton;
     private JButton editVisualElementButton;
+    private JButton nextPageButton;
     private JPanel Pages;
     private JPanel FrontPage;
     private JPanel BackPage;
     private JPanel LeftPage;
     private JPanel RightPage;
-    private JLabel BackPageText;
-    private JLabel BackImage;
-    private JLabel FrontImage;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JLabel FrontText;
+    private JLabel backText;
+    private JLabel backImage;
+    private JLabel frontImage;
+    private JLabel frontText;
     private JButton buttonOK;
     private JButton buttonCancel;
+    public JPanel pagePanel;
 
     //Controller
     public VisualElementController visualElementController;
@@ -43,10 +48,6 @@ public class MakerWindow {
         creatingCardController = new CreatingCardController();
         // Initialize
         this.card = card;
-        card.getFrontPage().setImageLabel(FrontImage);
-        card.getFrontPage().setTextLabel(FrontText);
-        card.getBackPage().setImageLabel(BackImage);
-        card.getBackPage().setTextLabel(BackPageText);
 
         // Controller
         visualElementController = new VisualElementController(card);
@@ -57,10 +58,12 @@ public class MakerWindow {
         String name = card.getName();
         String eventType = card.getEventType();
         String recipient = card.getRecipient();
-        JFrame frame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType);
-        creatingCardController.setOrientation(card, frame);
-
+        JFrame frame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType+"--"+ card.getFrontPage().getName());
+        frame.setSize(1200,700);
+        frame.setResizable(false);
         JPanel menuPanel = new JPanel();
+
+
         addVisualElementButton = new JButton("Add Element");
         deleteVisualElementButton = new JButton("Delete Element");
         copyVisualElementButton = new JButton("Copy Element");
@@ -74,6 +77,7 @@ public class MakerWindow {
         pasteVisualElementButton.addActionListener(new PasteVisualElementActionListener());
         saveButton.addActionListener(new SaveCard());
 
+
         menuPanel.add(addVisualElementButton);
         menuPanel.add(new JSeparator(SwingConstants.VERTICAL));
         menuPanel.add(deleteVisualElementButton);
@@ -86,10 +90,59 @@ public class MakerWindow {
         menuPanel.add(new JSeparator(SwingConstants.VERTICAL));
         menuPanel.add(saveButton);
 
-        frame.add(menuPanel);
 
-        JPanel frontPanel = new JPanel();
-        
+
+        MyMouseAdapter myMouseAdapter = new MyMouseAdapter();
+
+
+        frame.setLayout(new BorderLayout());
+
+        /*BoxLayout boxlayout = new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS);
+        frame.setLayout(boxlayout);*/
+        frame.add(menuPanel,BorderLayout.NORTH);
+
+
+        Border blackline, redLine;
+        redLine = BorderFactory.createLineBorder(Color.red);
+        blackline = BorderFactory.createLineBorder(Color.black);
+        JPanel elementPanel = new JPanel();
+        elementPanel.setPreferredSize(new Dimension(900,600));
+        //elementPanel.setBounds(100,50,900,600);
+        elementPanel.setBorder(blackline);
+        //creatingCardController.setOrientation(card, frontPanel);
+        JPanel pagePanel = new JPanel();
+        pagePanel.setPreferredSize(new Dimension(900,600));
+        //pagePanel.setBounds(0,0,900,600);
+        pagePanel.setBorder(redLine);
+        JPanel imagePanel = new JPanel();
+        JPanel textPanel = new JPanel();
+        elementPanel.add(pagePanel);
+        imagePanel.setPreferredSize(new Dimension(300,300));
+        textPanel.setPreferredSize(new Dimension(400,400));
+        pagePanel.setLayout(new FlowLayout());
+        pagePanel.add(imagePanel);
+        pagePanel.add(textPanel);
+
+        frontText = new JLabel("Test Text");
+        frontImage = new JLabel("Test Image");
+
+        card.getFrontPage().setImageLabel(frontImage);
+        card.getFrontPage().setTextLabel(frontText);
+        card.getBackPage().setImageLabel(backImage);
+        card.getBackPage().setTextLabel(backText);
+
+        frontText.addMouseListener(myMouseAdapter);
+        frontText.addMouseMotionListener(myMouseAdapter);
+        frontImage.addMouseListener(myMouseAdapter);
+        frontImage.addMouseMotionListener(myMouseAdapter);
+
+        imagePanel.add(frontImage);
+        textPanel.add(frontText);
+        frame.add(elementPanel,BorderLayout.CENTER);
+
+
+
+
 
 
 
@@ -97,6 +150,8 @@ public class MakerWindow {
         frame.setLocation(150,50);
         frame.setVisible(true);
     }
+
+
 
     // Button's Listener method
     private class AddVisualElementActionListener implements ActionListener {
@@ -137,6 +192,41 @@ public class MakerWindow {
 
 
     public static void main(String[] args) {
-        new MakerWindow(new Card()).createAndShowUI();
+        Card card = new Card();
+        card.setOrientation("landscape");
+        new MakerWindow(card).createAndShowUI();
+    }
+}
+
+class MyMouseAdapter extends MouseAdapter {
+
+    private Point initialLoc;
+    private Point initialLocOnScreen;
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        Component comp = (Component)e.getSource();
+        initialLoc = comp.getLocation();
+        initialLocOnScreen = e.getLocationOnScreen();
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        Component comp = (Component)e.getSource();
+        Point locOnScreen = e.getLocationOnScreen();
+
+        int x = locOnScreen.x - initialLocOnScreen.x + initialLoc.x;
+        int y = locOnScreen.y - initialLocOnScreen.y + initialLoc.y;
+        comp.setLocation(x, y);
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        Component comp = (Component)e.getSource();
+        Point locOnScreen = e.getLocationOnScreen();
+
+        int x = locOnScreen.x - initialLocOnScreen.x + initialLoc.x;
+        int y = locOnScreen.y - initialLocOnScreen.y + initialLoc.y;
+        comp.setLocation(x, y);
     }
 }

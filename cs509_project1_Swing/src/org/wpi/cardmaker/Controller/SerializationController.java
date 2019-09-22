@@ -28,8 +28,7 @@ public class SerializationController implements Serializable {
             o.writeObject(card);
             o.close();
             f.close();
-            System.out.println("Done");
-
+            System.out.println("Object writed on the disk");
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         } catch (IOException e) {
@@ -43,7 +42,7 @@ public class SerializationController implements Serializable {
             ObjectInputStream oi = new ObjectInputStream(fi);
             // Read objects
             Card card_new= (Card)oi.readObject();
-            System.out.println(card_new.toString());
+            System.out.println("Object read from the file.");
             oi.close();
             fi.close();
 

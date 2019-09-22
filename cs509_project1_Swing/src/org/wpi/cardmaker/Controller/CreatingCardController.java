@@ -22,19 +22,19 @@ public class CreatingCardController {
         serializationController.ObjectWriter(card);
     }
 
-    public void setOrientation(Card card, JFrame frame){
+    public void setOrientation(Card card, JPanel panel){
         String orientation = card.getOrientation();
         if(orientation == null){
-            frame.setSize(900,600);
+            panel.setSize(900,600);
         }
         if(orientation == "default"){
-            frame.setSize(900,600);
+            panel.setSize(900,600);
         }
         if(orientation == "landscape"){
-            frame.setSize(900,600);
+            panel.setSize(900,600);
         }
         if(orientation == "portrait"){
-            frame.setSize(600,900);
+            panel.setSize(600,900);
         }
     }
 
