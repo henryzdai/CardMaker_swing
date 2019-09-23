@@ -75,7 +75,7 @@ public class ImageEditor {
         @Override
         public void actionPerformed(ActionEvent e) {
             Card card__ = new SerializationController().ObjectReadAndCreator(currentFile);
-            new MakerWindow(card__).createAndShowUI();
+            //new MakerWindow(card__).createAndShowUI();
         }
     }
 

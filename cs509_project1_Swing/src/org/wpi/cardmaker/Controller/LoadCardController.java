@@ -43,16 +43,5 @@ public class LoadCardController {
         }
     }
 
-    public void loadCardController(){
-
-    }
-
-    public void DupicateCardController(){
-
-    }
-
-    public void UpdateController(){
-
-    }
 
 }

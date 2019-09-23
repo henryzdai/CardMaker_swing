@@ -1,11 +1,13 @@
 package org.wpi.cardmaker.Model;
 import org.wpi.cardmaker.Model.Page;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 public class Card implements Serializable {
 
-    public String[] eventOption = { "Default", "Birthday", "Anniversary", "Halloween", "Christmas", "Easter" };
+    public String[] eventOption = {"Default", "Birthday", "Anniversary", "Halloween", "Christmas", "Easter" };
+    public String[] defaultText = {"Default", "Happy Birthday.", "Happy Anniversary.", "Happy Halloween.", "Merry Christmas.", "Happy Easter"};
     public String[] orientationOption = {"Default", "landscape","portrait"};
     public String eventType;
     public String recipient;
@@ -14,8 +16,6 @@ public class Card implements Serializable {
     public Page leftPage;
     public Page rightPage;
     public String name;
-    public int Height;
-    public int Width;
     public String Orientation;
 
 
@@ -25,7 +25,16 @@ public class Card implements Serializable {
         this.recipient = "jone doe";
         this.name = "Card1";
         this.frontPage = new Page();
+        this.frontPage.setName("Front Page");
         this.backPage = new Page();
+        this.backPage.setName("Back Page");
+        this.backPage.setText("CopyRight to XXX");
+        this.leftPage = new Page();
+        this.leftPage.setName("Inner Left Page");
+        this.leftPage.setText("Happy xxx");
+        this.rightPage = new Page();
+        this.rightPage.setName("Inner Right Page");
+
     }
 
     public Card(String name, String eventType, String recipient){

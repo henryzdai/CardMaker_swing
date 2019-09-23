@@ -77,7 +77,12 @@ public class LoadList {
         @Override
         public void actionPerformed(ActionEvent e) {
             Card card__ = new SerializationController().ObjectReadAndCreator(currentFile);
-            new MakerWindow(card__).createAndShowUI();
+            System.out.println(card__.getFrontPage().getText());
+            MakerWindow window = new MakerWindow(card__);
+            window.createAndShowUI(card__.getFrontPage());
+            window.createLeftPage(card__.getLeftPage());
+            window.createRightPage(card__.getRightPage());
+            window.createBackPage(card__.getBackPage());
         }
     }
 

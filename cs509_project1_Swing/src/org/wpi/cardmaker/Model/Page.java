@@ -1,31 +1,36 @@
 package org.wpi.cardmaker.Model;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 
 public class Page implements Serializable {
     public String text;
     public String name;
-    public java.awt.Image image;
+    public String imagePath;
     public String textType;
     public int textSize;
     public JLabel textLabel;
     public JLabel imageLabel;
 
-    public Page() {
-        this.text = "Default Text";
-        this.name = "Page1";
+    public Page(){
+        this.name = "Page Name";
         this.text = " ";
+        this.imagePath = "./cs509_project1_Swing/src/resources/5.jpg";
+        //this.imageIcon = new ImageIcon(ImageIO.read(new File("./cs509_project1_Swing/src/resources/5.jpg")));
     }
 
-    public Page(String text, String name, Image image, String textType) {
-        this.text = text;
-        this.name = name;
-        this.image = image;
-        this.textType = textType;
+
+    public String getImagePath() {
+        return imagePath;
     }
 
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 
     public JLabel getTextLabel() {
         return textLabel;
@@ -73,14 +78,6 @@ public class Page implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
     }
 
     public Page(String name){

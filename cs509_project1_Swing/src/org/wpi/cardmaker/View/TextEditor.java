@@ -83,7 +83,7 @@ public class TextEditor {
             sl.ObjectWriter(page);*/
             frame__.setVisible(false);
             page.setText(editor__.getText());
-            page.getTextLabel().setFont(new Font(page.getTextType(), Font.PLAIN,24));
+            page.getTextLabel().setFont(new Font(page.getTextType(), Font.PLAIN,page.getTextSize()));
             page.getTextLabel().setText(page.text);
 
         }

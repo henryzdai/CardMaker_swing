@@ -25,15 +25,17 @@ public class VisualElementController {
     public JPanel contentPane;
     public Page page;
     public JFrame frame__;
-
+    public SerializationController serializationController;
 
 
     public VisualElementController(Card card){
         this.card = card;
+        serializationController = new SerializationController();
     }
 
+
     public void ChoosePage(String command){
-        String[] choices = { "Front Page", "Back Page"};
+        String[] choices = { "Front Page"};
         String input = (String) JOptionPane.showInputDialog(null, "Choose now...",
                 "Which page to add?", JOptionPane.QUESTION_MESSAGE, null, // Use
                 // default
@@ -42,10 +44,6 @@ public class VisualElementController {
                 choices[0]); // Initial choice
             if (input == "Front Page") {
                 page = card.getFrontPage();
-                ChooseVisualElementType(page, command);
-            }
-            if (input == "Back Page") {
-                page = card.getBackPage();
                 ChooseVisualElementType(page, command);
             }
 
@@ -59,16 +57,16 @@ public class VisualElementController {
                 choices[0]); // Initial choice
         if(input == "Image"){
             if(command == "Add") {
-                addImage(page.getImageLabel(), "1");
+                addImage(page.getImageLabel(), "1", page);
             }
             if(command == "Delete") {
                 page.getImageLabel().setIcon(null);
             }
             if(command == "Copy") {
-
+                CopyImage(page);
             }
             if(command == "Paste") {
-
+                PasteImage(page);
             }
         }
         if(input == "Text"){
@@ -98,46 +96,13 @@ public class VisualElementController {
         ix.createAndShowUI();
     }
 
-    public void addImage(Page page, JFrame frame, JLabel label){
-        File pictureFile = choosePictureFile(frame);
 
-        if (pictureFile == null) {
-            frame.requestFocusInWindow();
-            return;
-        }
 
-        ImageIcon icon = new ImageIcon(pictureFile.toString());
-        JButton picButton = new JButton(icon);
-        picButton.setBorder(new LineBorder(Color.WHITE));
-        picButton.setMargin(new Insets(0,0,0,0));
-        picButton.setAlignmentY(.9f);
-        picButton.setAlignmentX(.9f);
-
-        page.getImageLabel().setIcon(icon);
-        //picButton.addFocusListener(new SwingTestCase.PictureFocusListener());
-        picButton.setName("PICTURE_ID_" + new Random().nextInt());
-        //frame.insertComponent(picButton);
-        frame.requestFocusInWindow();
-    }
-
-    public File choosePictureFile(JFrame frame) {
-        JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                "PNG, JPG & GIF Images", "png", "jpg", "gif");
-        chooser.setFileFilter(filter);
-        if (chooser.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
-            return chooser.getSelectedFile();
-        }
-        else {
-            return null;
-        }
-    }
     public void addText(JLabel label, String text){
        label.setText(text);
     }
 
-    public void addImage(JLabel label, String id){
-        //Image immage= "resources/backimage.jpg";
+    public void addImage(JLabel label, String id, Page page){
         String filename = "./cs509_project1_Swing/src/resources/"+id+".jpg";
         Image image;
         try
@@ -145,6 +110,24 @@ public class VisualElementController {
             image = ImageIO.read(new File(filename));
             ImageIcon imageIcon = new ImageIcon(image);
             label.setIcon(imageIcon);
+            page.setImagePath(filename);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+
+    public void displayImage(JLabel label, String name){
+        String filename = name;
+        Image image;
+        try
+        {
+            image = ImageIO.read(new File(filename));
+            ImageIcon imageIcon = new ImageIcon(image);
+            label.setIcon(imageIcon);
+            //page.setImagePath(filename);
         }
         catch (Exception e)
         {
@@ -160,11 +143,32 @@ public class VisualElementController {
         clipboard.setContents(stringSelection, null);
     }
 
-    public void CopyImage(){
-
+    public void CopyImage(Page page){
+        Page copy_object = new Page();
+        copy_object.setName("copy_object");
+        copy_object.setImagePath(page.getImagePath());
+        serializationController.ObjectCopyWriter(copy_object);
     }
 
+    public void PasteImage(Page page){
+        Page copy_object = serializationController.CopyObjectReadAndCreator("copy_object");
+        page.setImagePath(copy_object.getImagePath());
+        String filename = page.getImagePath();
+        Image image;
+        try
+        {
+            image = ImageIO.read(new File(filename));
+            ImageIcon imageIcon = new ImageIcon(image);
+            page.getImageLabel().setIcon(imageIcon);
+            page.setImagePath(filename);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            System.exit(1);
+        }
 
+    }
 
     public void PasteText(Page page){
         String textToCopy = "";

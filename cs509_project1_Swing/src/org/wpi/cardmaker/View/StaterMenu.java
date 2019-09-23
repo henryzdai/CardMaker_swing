@@ -34,7 +34,7 @@ public class StaterMenu extends JFrame {
         frame.setContentPane(new StaterMenu().getContentPane());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800,700);
-        frame.setLocation(150,70);
+        frame.setLocation(500,500);
         frame.pack();
         frame.setVisible(true);
     }

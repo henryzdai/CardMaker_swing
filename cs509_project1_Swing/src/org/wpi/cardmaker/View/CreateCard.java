@@ -116,7 +116,11 @@ public class CreateCard {
             name = nameText.getText();
             recipient = recipientText.getText();
             creatingCardController.setProperties(card, name, eventType, recipient, orientation);
-            new MakerWindow(card).createAndShowUI();
+            MakerWindow window = new MakerWindow(card);
+            window.createAndShowUI(card.getFrontPage());
+            window.createLeftPage(card.getLeftPage());
+            window.createRightPage(card.getRightPage());
+            window.createBackPage(card.getBackPage());
         }
     }
 
