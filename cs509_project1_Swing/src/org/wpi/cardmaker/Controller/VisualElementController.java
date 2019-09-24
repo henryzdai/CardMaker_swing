@@ -137,10 +137,24 @@ public class VisualElementController {
     }
 
     public void CopyText(Page page){
-        String textToCopy = page.getTextLabel().getText();
+        Page copy_object = new Page();
+        copy_object.setName("copy_object_text");
+        copy_object.setText(page.getTextLabel().getText());
+        copy_object.setTextSize(page.getTextSize());
+        copy_object.setTextType(page.getTextType());
+        serializationController.ObjectCopyWriter(copy_object);
+        /*String textToCopy = page.getTextLabel().getText();
         StringSelection stringSelection = new StringSelection(textToCopy);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
+        clipboard.setContents(stringSelection, null);*/
+    }
+    public void PasteText(Page page){
+        Page copy_object = serializationController.CopyObjectReadAndCreator("copy_object_text");
+        page.setTextSize(copy_object.getTextSize());
+        page.setTextType(copy_object.getTextType());
+        page.getTextLabel().setFont(new Font(page.getTextType(), Font.PLAIN,page.getTextSize()));
+        page.getTextLabel().setText(copy_object.getText());
+
     }
 
     public void CopyImage(Page page){
@@ -170,25 +184,25 @@ public class VisualElementController {
 
     }
 
-    public void PasteText(Page page){
-        String textToCopy = "";
-        DataFlavor dataFlavor = DataFlavor.stringFlavor;
-        //StringSelection stringSelection = new StringSelection(textToCopy);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        if(clipboard.isDataFlavorAvailable(dataFlavor)) {
-            try {
-                textToCopy = (String)clipboard.getData(dataFlavor);
-            } catch (UnsupportedFlavorException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        System.out.println(textToCopy);
-        //page.getTextLabel().setFont();
-        page.getTextLabel().setText(textToCopy);
-        //clipboard.setContents(stringSelection, null);
-    }
+//    public void PasteText(Page page){
+//        String textToCopy = "";
+//        DataFlavor dataFlavor = DataFlavor.stringFlavor;
+//        //StringSelection stringSelection = new StringSelection(textToCopy);
+//        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+//        if(clipboard.isDataFlavorAvailable(dataFlavor)) {
+//            try {
+//                textToCopy = (String)clipboard.getData(dataFlavor);
+//            } catch (UnsupportedFlavorException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        System.out.println(textToCopy);
+//        //page.getTextLabel().setFont();
+//        page.getTextLabel().setText(textToCopy);
+//        //clipboard.setContents(stringSelection, null);
+//    }
 
 
 }

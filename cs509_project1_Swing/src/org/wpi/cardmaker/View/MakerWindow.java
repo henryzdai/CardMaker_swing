@@ -83,6 +83,7 @@ public class MakerWindow {
         deleteVisualElementButton.addActionListener(new DelVisualElementActionListener());
         copyVisualElementButton.addActionListener(new CopyVisualElementActionListener());
         pasteVisualElementButton.addActionListener(new PasteVisualElementActionListener());
+        editVisualElementButton.addActionListener(new AddVisualElementActionListener());
         saveButton.addActionListener(new SaveCard());
 
 
@@ -181,7 +182,8 @@ public class MakerWindow {
         String name = card.getName();
         String eventType = card.getEventType();
         String recipient = card.getRecipient();
-        LeftFrame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType+"--"+ card.getFrontPage().getName());
+        //LeftFrame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType+"--"+ card.getFrontPage().getName());
+        LeftFrame = new JFrame("Inner Left Page");
         LeftFrame.setSize(1200,1200);
         LeftFrame.setResizable(false);
         JPanel menuPanel = new JPanel();
@@ -231,7 +233,8 @@ public class MakerWindow {
         String name = card.getName();
         String eventType = card.getEventType();
         String recipient = card.getRecipient();
-        BackFrame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType+"--"+ card.getFrontPage().getName());
+        //BackFrame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType+"--"+ card.getFrontPage().getName());
+        BackFrame = new JFrame("Back Page");
         BackFrame.setSize(1200,1200);
         BackFrame.setResizable(false);
         JPanel menuPanel = new JPanel();
@@ -291,7 +294,8 @@ public class MakerWindow {
         String name = card.getName();
         String eventType = card.getEventType();
         String recipient = card.getRecipient();
-        RightFrame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType+"--"+ card.getFrontPage().getName());
+        //RightFrame = new JFrame(name+"-"+"A card for "+recipient+"'s "+eventType+"--"+ card.getFrontPage().getName());
+        RightFrame = new JFrame("Inner Right Page");
         RightFrame.setSize(1200,1200);
         RightFrame.setResizable(false);
         JPanel menuPanel = new JPanel();

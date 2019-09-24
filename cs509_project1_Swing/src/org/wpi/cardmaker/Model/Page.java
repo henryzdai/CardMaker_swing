@@ -15,6 +15,7 @@ public class Page implements Serializable {
     public int textSize;
     public JLabel textLabel;
     public JLabel imageLabel;
+    public Font font;
 
     public Page(){
         this.name = "Page Name";
@@ -23,6 +24,13 @@ public class Page implements Serializable {
         //this.imageIcon = new ImageIcon(ImageIO.read(new File("./cs509_project1_Swing/src/resources/5.jpg")));
     }
 
+    public Font getFont() {
+        return font;
+    }
+
+    public void setFont(Font font) {
+        this.font = font;
+    }
 
     public String getImagePath() {
         return imagePath;

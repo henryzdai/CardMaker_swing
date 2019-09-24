@@ -12,9 +12,21 @@ George Heineman(Instructor)
 
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+Using Java Swing to create a card maker app for user to create their customized gift card.
 
 ## Design Documents
+### Use Cases
+1. User start app in "StartMenu"'s main function.
+2. User open card maker choose "Make card" or "Load Card"
+3. User click "Make card", set properties of the card in creating card frame, and then click "OK" to open main window.
+4. Open "Make card", click "Add visual element" button, then first have to **confirm it is front page** to continue, after, choose which type element to add, if the element is image, it directly add the image for now. If it's text, the app shows a text editor frame, in the frame, use can enter text, and then **select the text in the text filed, user can now change the text size and font**. If not select the text, the change won't apply. Click "Submit" if done edit text.
+5. At main window, user click "Edit Visual Element" to then choose element type to change the existing text or image.
+6. User can click "Display all" to display all pages of the card.
+7. User can click "Copy Visual Element" or "Paste Visual Element", choose element type to performance copy and paste action.
+8. User click "Save" to save the card, otherwise **it will not be saved automaticlly**.
+9. User click "Load card", and choose to load, delete, duplicate, update the card.
+10. If user wants to duplicate a card and apply change, click "Duplicate" then click "Update" to change the information; **Otherwise, it's only a duplicated version.**
+
 
 ### Mockup
 
@@ -44,65 +56,33 @@ If user clicks "create", then the app opens a new window that shows the main app
 
 ## Build status
 
-Build status of continus integration i.e. travis, appveyor etc. Ex. -
+[![Build Status](https://travis-ci.com/travis-ci/travis-web.svg?branch=master)](https://travis-ci.com/travis-ci/travis-web)
 
-[![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
-
-## Code style
-
-If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 ## Screenshots
 
-Include logo/demo screenshot etc.
 
 ## Tech/framework used
 
-Ex. -
 
 <b>Built with</b>
 
-- [Electron](https://electron.atom.io)
+- Java Swing
 
 ## Features
 
 What makes your project stand out?
 
-## Code Example
-
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
-
 ## Installation
 
-Provide step by step series of examples and explanations about how to get a development env running.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-
-## How to use?
-
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
-
-## Contribute
-
-Let people know how they can contribute into your project. A [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md) will be a big plus.
+Works fine in IntelliJ idea 2019.2 version.
 
 ## Credits
 
-Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project.
+Zekun Dai
 
 #### Anything else that seems useful
 
 ## License
 
-A short snippet describing the license (MIT, Apache etc)
-
-MIT © [Yourname]()
+MIT ©
